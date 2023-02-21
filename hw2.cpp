@@ -4,16 +4,14 @@
 using namespace std;
 
 int main(void) {
-    int l, w;
+    int l, w, countarr[256]={0};
     scanf("%d %d%*c", &l, &w);
     const int img_size = l*w;
-    int *arr = (int*)malloc(img_size * sizeof(int));
+    int temp(0);
     for(int i=0; i<img_size; ++i) {
-        cin >> arr[i];
+        cin >> temp;
+        countarr[temp]++;
     }
-    int countarr[256]={0};
-    for(int i=0; i<img_size; ++i)
-        countarr[arr[i]]++;
     int peak_point(0), peak_point_index(0);
     for(int i=0; i<256; ++i)
         if(countarr[i]>peak_point) {
