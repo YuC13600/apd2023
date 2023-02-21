@@ -21,7 +21,7 @@ int main(void) {
         char output[5];
         for(int i=3; i>=0; --i) {
             output[i] = ans%2 + 48;
-            ans /=2;
+            ans /= 2;
         }
         output[4] = '\0';
         cout << output << endl;
