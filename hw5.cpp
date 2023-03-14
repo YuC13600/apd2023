@@ -4,11 +4,11 @@
 
 using namespace std;
 
-unordered_map<long long, long long> cache;
+unordered_map<int, int> cache;
 
-long long calculate(long long x) {
-    long long sum = 0;
-    vector<long long> result;
+int calculate(int x) {
+    int sum = 0;
+    vector<int> result;
     while (x != 1 && cache.find(x) == cache.end()) {
         result.push_back(x);
         if(x % 2 == 0) {
@@ -16,11 +16,15 @@ long long calculate(long long x) {
         } else {
             x = 3*x + 1;
         }
+
+        if(x<1) {
+            return 0;
+        }
     }
     
     sum += cache[x];
 
-    for(long long i = result.size() - 1; i >= 0; --i) {
+    for(int i = result.size() - 1; i >= 0; --i) {
             sum += result[i];
             cache[result[i]] = sum;
     }
@@ -29,13 +33,13 @@ long long calculate(long long x) {
 
 int main(void) {
     cache[1] = 1;
-    long long n;
+    int n;
     cin >> n;
     while(n--) {
-        long long lower_bound, upper_bound;
+        int lower_bound, upper_bound;
         cin >> lower_bound >> upper_bound;
-        long long max_sum(0), max(0);
-        for(long long i = lower_bound; i <= upper_bound; ++i) {
+        int max_sum(0), max(0);
+        for(int i = lower_bound; i <= upper_bound; ++i) {
             if(calculate(i) > max_sum) {
                 max_sum = calculate(i);
                 max = i;
