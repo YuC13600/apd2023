@@ -17,7 +17,7 @@ int calculate(int x) {
             x = 3*x + 1;
         }
 
-        if(x<1) {
+        if(x < 1) {
             return 0;
         }
     }
