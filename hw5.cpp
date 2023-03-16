@@ -4,12 +4,12 @@
 
 using namespace std;
 
-unordered_map<int, int> cache;
+int cache[1000000]={0};
 
 int calculate(int x) {
     int sum = 0;
     vector<int> result;
-    while (x != 1 && cache.find(x) == cache.end()) {
+    while (x != 1 && ((x > 1000000 || x < 1) || cache[x] == 0)) {
         result.push_back(x);
         if(x % 2 == 0) {
             x /= 2;
@@ -26,7 +26,9 @@ int calculate(int x) {
 
     for(int i = result.size() - 1; i >= 0; --i) {
             sum += result[i];
-            cache[result[i]] = sum;
+            if (result[i] < 1000000) {
+                cache[result[i]] = sum;
+            }
     }
     return sum;
 }
