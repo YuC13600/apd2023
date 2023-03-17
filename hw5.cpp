@@ -4,11 +4,11 @@
 
 using namespace std;
 
-int cache[1000000]={0};
+long long cache[1000000]={0};
 
-int calculate(int x) {
-    int sum = 0;
-    vector<int> result;
+long long calculate(long long x) {
+    long long sum = 0;
+    vector<long long> result;
     while (x != 1 && ((x > 1000000 || x < 1) || cache[x] == 0)) {
         result.push_back(x);
         if(x % 2 == 0) {
@@ -24,7 +24,7 @@ int calculate(int x) {
     
     sum += cache[x];
 
-    for(int i = result.size() - 1; i >= 0; --i) {
+    for(long long i = result.size() - 1; i >= 0; --i) {
             sum += result[i];
             if (result[i] < 1000000) {
                 cache[result[i]] = sum;
@@ -35,13 +35,13 @@ int calculate(int x) {
 
 int main(void) {
     cache[1] = 1;
-    int n;
+    long long n;
     cin >> n;
     while(n--) {
-        int lower_bound, upper_bound;
+        long long lower_bound, upper_bound;
         cin >> lower_bound >> upper_bound;
-        int max_sum(0), max(0);
-        for(int i = lower_bound; i <= upper_bound; ++i) {
+        long long max_sum(0), max(0);
+        for(long long i = lower_bound; i <= upper_bound; ++i) {
             if(calculate(i) > max_sum) {
                 max_sum = calculate(i);
                 max = i;
@@ -49,4 +49,5 @@ int main(void) {
         }
         cout << max_sum << " " << max << endl;
     }
+    return 0;
 }
