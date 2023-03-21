@@ -3,7 +3,6 @@ using namespace std;
 
 int main(void) {
     int n;
-    char c, buffer[1024];
     cin >> n;
     while(n--) {
         int score[101] = {0};
