@@ -42,6 +42,7 @@ int main(void) {
             base[1] = 1;
         }else if((data[curstr].str)[0] == '2') {
             score += base[3] + base[2];
+            base[3] = base[1];
             base[2] = 1;
             base[1] = 0;
         } else if((data[curstr].str)[0] == '3') {
@@ -54,10 +55,10 @@ int main(void) {
             for(int i=1; i<4; ++i)
                 base[i] = 0;
         }
-        cout << curstr << ":" << data[curstr].str << score << endl;
-        for(int i=1; i<4; ++i)
-            cout << base[i];
-        cout << endl;
+        // cout << curstr << ":" << data[curstr].str << score << endl;
+        // for(int i=1; i<4; ++i)
+        //     cout << base[i];
+        // cout << endl;
         curstr += 1;
     }
     cout << score << endl;
