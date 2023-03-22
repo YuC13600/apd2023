@@ -14,7 +14,7 @@ int main(void) {
             cin >> in;
             score[in]++;
             max_score = max(max_score, in);
-        } while(cin.get() != '\n');
+        } while(cin.get() == ' ');
         int ans = 0, shift = (max_score >= 95 ? 0 : 95 - max_score);
         for(int i=55-shift; i<60-shift; ++i) {
             ans += score[i];
