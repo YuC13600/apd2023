@@ -2,6 +2,8 @@
 using namespace std;
 
 int main(void) {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
     int n;
     char c, buffer[1024];
     cin >> n;
@@ -17,6 +19,6 @@ int main(void) {
         for(int i=55-shift; i<60-shift; ++i) {
             ans += score[i];
         }
-        cout << ans << endl;
+        cout << ans << '\n';
     }
 }
