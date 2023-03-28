@@ -2,21 +2,30 @@
 #include <map>
 using namespace std;
 
+struct pa {
+    int x, y;
+    bool operator <(const pa& rhs) const{
+        if(x != rhs.x)
+            return x < rhs.x;
+        return y < rhs.y;
+    }
+};
 
 int main(void) {
     int n;
     while(cin >> n) {
-        map<int, char> mp;
+        map<pa, char> mp;
         int sum(0);
         while(n--) {
-            int input;
-            cin >> input;
-            map<int,char>::iterator it;
+            pa input;
+            cin >> input.y >> input.x;
+            map<pa,char>::iterator it;
             it = mp.find(input);
             if(it != mp.end()) {
                 mp.erase(input);
                 sum++;
             } else {
+                swap(input.x, input.y);
                 mp.insert(make_pair(input, 'A'));
             }
         }
