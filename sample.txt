@@ -1,12 +1,9 @@
-7
-1 2
-35 66
-100 500
-2 1
-2 3
-500 100
-3 2
-3
-100 200
-200 400
-400 1
+8
+monkey 2 tree
+snake 1 ground
+turtle 2 water
+bear 1 tree
+monkey 1 tree
+snake 3 tree
+monkey 2 tree
+monkey 1 ground
