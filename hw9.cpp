@@ -21,12 +21,14 @@ int main(void) {
             cin >> input.y >> input.x;
             map<pa,char>::iterator it;
             it = mp.find(input);
-            if(it != mp.end()) {
-                mp.erase(input);
-                sum++;
-            } else {
-                swap(input.x, input.y);
-                mp.insert(make_pair(input, 'A'));
+            if(input.x != input.y) {
+                if(it != mp.end()) {
+                    mp.erase(input);
+                    sum++;
+                } else {
+                    swap(input.x, input.y);
+                    mp.insert(make_pair(input, 'A'));
+                }
             }
         }
         cout << sum << endl;
