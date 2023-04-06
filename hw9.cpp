@@ -2,9 +2,9 @@
 #include <map>
 using namespace std;
 
-struct pa {
+struct Pair {
     int x, y;
-    bool operator <(const pa& rhs) const{
+    bool operator <(const Pair& rhs) const{
         if(x != rhs.x)
             return x < rhs.x;
         return y < rhs.y;
@@ -14,10 +14,10 @@ struct pa {
 int main(void) {
     int n;
     while(cin >> n) {
-        map<pa, int> mp;
+        map<Pair, int> mp;
         int sum(0);
         while(n--) {
-            pa input;
+            Pair input;
             cin >> input.y >> input.x;
             auto it = mp.find(input);
             if(input.x != input.y) {
