@@ -14,20 +14,28 @@ struct pa {
 int main(void) {
     int n;
     while(cin >> n) {
-        map<pa, char> mp;
+        map<pa, int> mp;
         int sum(0);
         while(n--) {
             pa input;
             cin >> input.y >> input.x;
-            map<pa,char>::iterator it;
-            it = mp.find(input);
+            auto it = mp.find(input);
             if(input.x != input.y) {
                 if(it != mp.end()) {
-                    mp.erase(input);
+                    if(it->second == 1) {
+                        mp.erase(input);
+                    } else {
+                        it->second--;
+                    }
                     sum++;
                 } else {
                     swap(input.x, input.y);
-                    mp.insert(make_pair(input, 'A'));
+                    auto it = mp.find(input);
+                    if(it != mp.end()) {
+                        it->second++;
+                    } else {
+                        mp.insert(make_pair(input, 1));
+                    }
                 }
             }
         }
