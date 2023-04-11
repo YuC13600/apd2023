@@ -1,8 +1,6 @@
 #include <algorithm>
-#include <bitset>
 #include <iostream>
 #include <vector>
-#include <iterator>
 #include <cmath>
 using namespace std;
 
@@ -20,11 +18,16 @@ int main(void) {
 
     unsigned n(0);
     while(cin >> n) {
+        if(n == 0 || n == 1) {
+            cout << 0 << endl;
+            continue;
+        }
         vector<bool> vec(32, false);
         for(int i=31; i>=0; --i) {
             vec[i] = n%2;
             n /= 2;
         }
+        bool flag(true);
         do {
             unsigned cur(0);
             int index = 1;
@@ -34,16 +37,13 @@ int main(void) {
             }
             if(is_prime(cur)) {
                 cout << cur << endl;
+                flag = false;
                 break;
             }
         } while(prev_permutation(vec.begin(), vec.end()));
+        if(flag) {
+            cout << 0 << endl;
+        }
     }
-    // vector<bool> v(32, false);
-    // v[0] = true;
-    // do {
-    //     copy(v.begin(), v.end(), ostream_iterator<bool>(cout, ""));
-    //     cout << endl;
-    // } while(prev_permutation(v.begin(), v.end()));
-    
     return 0;
 }
