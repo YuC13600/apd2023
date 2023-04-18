@@ -39,7 +39,6 @@ int main(void) {
                 even_pair = {left + 1, left + 1};
             }
             
-            
             if(even_len == max_len) {
                 vec.push_back(even_pair);
             }
@@ -72,6 +71,5 @@ int main(void) {
             }
             cout << '\n';
         }
-        
     }
 }
