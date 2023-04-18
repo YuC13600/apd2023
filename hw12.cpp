@@ -9,6 +9,9 @@ struct Pair {
 
 
 int main(void) {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+
     char buf[100001];
     while(cin >> buf) {
         const int len = strlen(buf);
@@ -55,7 +58,7 @@ int main(void) {
         }
         
         if(max_len == 0 || max_len == 1) {
-            cout << "0" << endl;
+            cout << '0' << '\n';
         } else {
             cout << max_len << " ";
             for(int i(vec[0].front); i <= vec[0].back; ++i) {
@@ -67,7 +70,7 @@ int main(void) {
                     cout << buf[j];
                 }
             }
-            cout << endl;
+            cout << '\n';
         }
         
     }
