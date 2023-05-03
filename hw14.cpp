@@ -19,7 +19,8 @@ int main(void) {
         }
         for(int i(0); i<m; ++i) {
             dp_max[i][i] = 0;
-            dp_max[i][i+1] = 0;
+            if(i+1 < m)
+                dp_max[i][i+1] = 0;
         }
         int **dp_min = new int*[m];
         for(int i(0); i<m; ++i) {
@@ -27,7 +28,8 @@ int main(void) {
         }
         for(int i(0); i<m; ++i) {
             dp_min[i][i] = 0;
-            dp_min[i][i+1] = 0;
+            if(i+1 < m)
+                dp_min[i][i+1] = 0;
         }
         for(int i(2); i<m; ++i) {
             for(int j(0); j<m-i; ++j) {
@@ -49,5 +51,6 @@ int main(void) {
             delete [] dp_min[i];
         }
         delete [] dp_min;
+        delete [] arr;
     }
 }
