@@ -30,7 +30,7 @@ def myfunc(nums):
 
 
 # 範例測試
-nums = [1, 3, 5, 2, 4]
+nums = [1, 2, 3, 4, 5]
 max_efficiency, min_efficiency = myfunc(nums)
 print("最大效益為", max_efficiency) # 預期輸出: 100
 print("最小效益為", min_efficiency) # 預期輸出: 38
