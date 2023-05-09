@@ -1,29 +1,28 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-#define INT_MAX_REDIFINED 2147483647
-#define INT_MIN_REDIFINED -2147483648
+#define INT_MAX_REDIFINED 0xffffffffffffffff
 
 int main(void) {
-    int n, input_buffer;
+    unsigned long long n, input_buffer;
     cin >> n;
-    vector<int> w, f;
-    for(int i(0); i<n; ++i) {
+    vector<unsigned long long> w, f;
+    for(unsigned long long i(0); i<n; ++i) {
         cin >> input_buffer;
         w.push_back(input_buffer);
     }
-    for(int i(0); i<n; ++i) {
+    for(unsigned long long i(0); i<n; ++i) {
         cin >> input_buffer;
         f.push_back(input_buffer);
     }
-    int w_sum(0);
-    for(int i(0); i<n; ++i) {
+    unsigned long long w_sum(0);
+    for(unsigned long long i(0); i<n; ++i) {
         w_sum += w[i];
     }
-    int ans(0);
-    for(int i(0); i<n; ++i) {
-        int min_val(INT_MAX_REDIFINED), min_idx(-1);
-        for(int j(0); j<w.size(); ++j) {
+    unsigned long long ans(0);
+    for(unsigned long long i(0); i<n; ++i) {
+        unsigned long long min_val(INT_MAX_REDIFINED), min_idx(0);
+        for(unsigned long long j(0); j<w.size(); ++j) {
             if(min_val > f[j] * (w_sum - w[j])) {
                 min_val = f[j] * (w_sum - w[j]);
                 min_idx = j;
