@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-#define INT_MAX_REDIFINED 0xffffffffffffffff
+#define ULL_MAX_REDIFINED 0xffffffffffffffff
 
 int main(void) {
     unsigned long long n, input_buffer;
@@ -21,7 +21,7 @@ int main(void) {
     }
     unsigned long long ans(0);
     for(unsigned long long i(0); i<n; ++i) {
-        unsigned long long min_val(INT_MAX_REDIFINED), min_idx(0);
+        unsigned long long min_val(ULL_MAX_REDIFINED), min_idx(0);
         for(unsigned long long j(0); j<w.size(); ++j) {
             if(min_val > f[j] * (w_sum - w[j])) {
                 min_val = f[j] * (w_sum - w[j]);
