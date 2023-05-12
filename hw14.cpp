@@ -1,6 +1,6 @@
 #include <iostream>
-#define INT_MAX_REDIFINED 2147483647
-#define INT_MIN_REDIFINED -2147483648
+#include <climits>
+#include <limits.h>
 using namespace std;
 
 int main(void) {
@@ -33,7 +33,7 @@ int main(void) {
         }
         for(int i(2); i<m; ++i) {
             for(int j(0); j<m-i; ++j) {
-                int max_val(INT_MIN_REDIFINED), min_val(INT_MAX_REDIFINED);
+                int max_val(INT_MIN), min_val(INT_MAX);
                 for(int k(j+1); k<j+i; ++k) {
                     max_val = max(max_val, (arr[j]*arr[k]*arr[j+i] + dp_max[j][k] + dp_max[k][j+i]));
                     min_val = min(min_val, (arr[j]*arr[k]*arr[j+i] + dp_min[j][k] + dp_min[k][j+i]));
