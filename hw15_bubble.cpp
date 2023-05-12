@@ -16,7 +16,7 @@ int main(void) {
     }
     for(int i(n-1); i > 0; --i) {
         for(int j(0); j < i; ++j) {
-            if(f[j] * w[j+1] > f[j+1] * f[j]) {
+            if(f[j] * w[j+1] > f[j+1] * w[j]) {
                 swap(w[j], w[j+1]);
                 swap(f[j], f[j+1]);
             } 
